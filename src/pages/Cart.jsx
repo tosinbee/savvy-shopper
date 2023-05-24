@@ -4,7 +4,6 @@ import Helmet from "../components/Helmet/Helmet";
 import { Container, Row, Col } from "reactstrap";
 import CommonSection from "../components/UI/CommonSection";
 
-
 import { motion } from "framer-motion";
 import { cartActions } from "../redux/slices/cartSlice";
 
@@ -39,11 +38,9 @@ const Cart = () => {
                 </thead>
 
                 <tbody>
-                  {
-                    cartItems.map((item, index)=>(
-                      <Tr item={item} key={index}/>
-                    ))
-                  }
+                  {cartItems.map((item, index) => (
+                    <Tr item={item} key={index} />
+                  ))}
                 </tbody>
               </table>
             )}
@@ -51,20 +48,22 @@ const Cart = () => {
 
           <Col lg="3" className="tot__amount">
             <div>
-            <h6>Subtotal
-            <span className="fs-4 fw-bold ">$ {totalAmount}</span>
-            </h6>
-           
-            <p className="fs-6 mt-2">Taxes and Shipping will be calculated in checkout</p>
+              <h6>
+                Subtotal
+                <span className="fs-4 fw-bold ">$ {totalAmount}</span>
+              </h6>
+
+              <p className="fs-6 mt-2">
+                Taxes and Shipping will be calculated in checkout
+              </p>
             </div>
             <div>
-
               <button className="buy__button w-100">
-              <Link to='/checkout'>Checkout</Link>
+                <Link to="/checkout">Checkout</Link>
               </button>
 
               <button className="buy__button w-100 mt-3">
-              <Link to='/shop'>Continue Shopping</Link>
+                <Link to="/shop">Continue Shopping</Link>
               </button>
             </div>
           </Col>
@@ -74,24 +73,29 @@ const Cart = () => {
   );
 };
 
-const Tr = ({item}) =>{
-  const dispatch = useDispatch()
+const Tr = ({ item }) => {
+  const dispatch = useDispatch();
 
-  const deleteProduct = ()=>{
-    dispatch(cartActions.deleteItem
-      (item.id))
-  }
-  return <tr>
-  <td>
-    <img src={item.imgUrl} alt="" />
-  </td>
-  <td>{item.productName}</td>
-  <td>${item.price}</td>
-  <td>{item.quantity}pc</td>
-  <td >
-    <motion.i onClick={deleteProduct} whileTap={{scale: 1.2}} class="ri-delete-bin-6-line"></motion.i>
-  </td>
-</tr>
-}
+  const deleteProduct = () => {
+    dispatch(cartActions.deleteItem(item.id));
+  };
+  return (
+    <tr>
+      <td>
+        <img src={item.imgUrl} alt="" />
+      </td>
+      <td>{item.productName}</td>
+      <td>${item.price}</td>
+      <td>{item.quantity}pc</td>
+      <td>
+        <motion.i
+          onClick={deleteProduct}
+          whileTap={{ scale: 1.2 }}
+          class="ri-delete-bin-6-line"
+        ></motion.i>
+      </td>
+    </tr>
+  );
+};
 
 export default Cart;
