@@ -190,3 +190,35 @@ position: relative;
     line-height: 60px;
   }
 }
+
+@media (max-width: 992px) {
+  .nav__icons .profile .profile__actions {
+    width: 125px; 
+    padding: 10px;
+    left: unset; 
+    right: 0; 
+    top: calc(100% + 2px); 
+
+  }
+}
+
+@media (max-width: 768px) {
+  .nav__icons .profile .profile__actions {
+    width: 125px; 
+    padding: 10px;
+    left: unset; 
+    right: -51px; 
+    top: calc(100% + 2px); 
+
+  }
+}
+
+@media (max-width: 572px) {
+  .nav__icons .profile .profile__actions {
+    width: 122px; 
+    padding: 10px;
+    left: unset; 
+    right: -31px; 
+    top: calc(100% + 2px); 
+  }
+  }
